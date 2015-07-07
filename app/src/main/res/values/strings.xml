@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TravelLanka</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Download">Download</string>
+    <string name="title_activity_city_view">city_view</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="locations">Locations</string>
+    <string name="download_button">Download</string>
+    <string name="search_places">Search</string>
+    <string name="title_activity_place_list_and_map">PlaceListAndMap</string>
+</resources>

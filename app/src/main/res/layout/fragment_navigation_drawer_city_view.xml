@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.gdg.studyjam.smartchef.NavigationDrawerFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+
+    >
+
+    <ImageView
+
+        android:layout_width="300dp"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/image"
+        android:src="@drawable/navigationimage"
+        android:layout_gravity="left|top" />
+
+    <ListView
+        android:layout_width="300dp"
+        android:layout_height="264dp"
+        android:layout_below="@+id/search"
+        android:id="@+id/listViewNavBar"
+        android:dividerHeight="10dp"
+        android:layout_gravity="left|bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/search_places"
+        android:id="@+id/search"
+        android:layout_above="@+id/listViewNavBar"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="left|center_vertical"
+       />
+
+
+</FrameLayout>
