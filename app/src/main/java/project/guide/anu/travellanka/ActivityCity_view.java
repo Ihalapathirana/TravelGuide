@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,5 +38,15 @@ public class ActivityCity_view extends ActionBarActivity {
         description.setText(city.getCity_description());
     }
 
+    public void downloadButton(View v){
+        double lati;
+        double lon;
+        GPSTracker gpsTracker=new GPSTracker(this);
+        lati = gpsTracker.getLatitude();
+        lon=gpsTracker.getLongitude();
 
+        Log.d("lati and long",String.valueOf(lati));
+        Log.d("lati and long",String.valueOf(lon));
+
+    }
 }
