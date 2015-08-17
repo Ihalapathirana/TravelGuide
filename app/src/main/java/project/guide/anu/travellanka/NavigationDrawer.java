@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,17 +54,17 @@ public class NavigationDrawer extends Fragment {
             View view = inflater.inflate(R.layout.fragment_navigation_drawer_city_view, container, false);
             listView= (ListView) view.findViewById(R.id.listViewNavBar);
             MyNavigationListAdapter adapter=new MyNavigationListAdapter(getActivity(),listItems);
+            // add item to navigation drawer
+            listItems.add(new SeachPlace("  Bank", R.drawable.bank));
+            listItems.add(new SeachPlace("  Bus Stops", R.drawable.bus));
+            listItems.add(new SeachPlace("  Gas Filling Station", R.drawable.gas));
+            listItems.add(new SeachPlace("  Hospital", R.drawable.hospital));
+            listItems.add(new SeachPlace("  Hotel", R.drawable.hotel));
+            listItems.add(new SeachPlace("  Restaurants", R.drawable.rest));
+            listItems.add(new SeachPlace("  Attraction places", R.drawable.touristattraction));
+            listItems.add(new SeachPlace("  Train", R.drawable.train));
 
-            listItems.add(new SeachPlace("  Bank",R.drawable.bank));
-            listItems.add(new SeachPlace("  Bus Stops",R.drawable.bus));
-            listItems.add(new SeachPlace("  Gas Filling Station",R.drawable.gas));
-            listItems.add(new SeachPlace("  Hospital",R.drawable.hospital));
-            listItems.add(new SeachPlace("  Hotel",R.drawable.hotel));
-            listItems.add(new SeachPlace("  Restaurants",R.drawable.rest));
-            listItems.add(new SeachPlace("  Attraction places",R.drawable.touristattraction));
-            listItems.add(new SeachPlace("  Train",R.drawable.train));
-
-
+            // set list view to adapter
             listView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
 
@@ -82,36 +81,36 @@ public class NavigationDrawer extends Fragment {
                                                     }
                                                     else if(pos==1){
 
-                                                        intent=new Intent(getActivity(), ActivityCitySelection.class);
+                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
                                                         startActivity(intent);
                                                     }
                                                     else if(pos==2){
 
-                                                        intent=new Intent(getActivity(), ActivityCitySelection.class);
+                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
                                                         startActivity(intent);
                                                     }
                                                     else if(pos==3){
 
-                                                        intent=new Intent(getActivity(), ActivityCitySelection.class);
+                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
                                                         startActivity(intent);
                                                     }
                                                     else if(pos==4){
 
-                                                        intent=new Intent(getActivity(), ActivityCitySelection.class);
+                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
                                                         startActivity(intent);
                                                     }
                                                     else if(pos==5){
 
-                                                        intent=new Intent(getActivity(), ActivityCitySelection.class);
+                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
                                                         startActivity(intent);
                                                     }
                                                     else if(pos==6){
 
-                                                        intent=new Intent(getActivity(), ActivityCitySelection.class);
+                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
                                                         startActivity(intent);
                                                     }else{
 
-                                                        intent=new Intent(getActivity(), ActivityCitySelection.class);
+                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
                                                         startActivity(intent);
                                                     }
 

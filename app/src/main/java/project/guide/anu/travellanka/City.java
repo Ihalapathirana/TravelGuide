@@ -1,6 +1,5 @@
 package project.guide.anu.travellanka;
 
-import android.media.ExifInterface;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -12,17 +11,22 @@ public class City implements Parcelable {
     private int city_image;
     private String city_description;
 
+    //constructor
     public  City(String name,int image){
         setCity_image(image);
         setCity_name(name);
     }
 
-
+    //constructor
     public City(String name,int image,String desc){
 
         setCity_name(name);
         setCity_image(image);
         setCity_description(desc);
+
+    }
+
+    public City(){
 
     }
 
@@ -52,7 +56,7 @@ public class City implements Parcelable {
 
 
 
-
+    //to send object to next activity
     protected City(Parcel in) {
         city_name = in.readString();
         city_image = in.readInt();
@@ -64,6 +68,7 @@ public class City implements Parcelable {
         return 0;
     }
 
+    // to send object to the next activity
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(city_name);
@@ -72,7 +77,7 @@ public class City implements Parcelable {
     }
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<City> CREATOR = new Parcelable.Creator<City>() {
+    public static final Creator<City> CREATOR = new Creator<City>() {
         @Override
         public City createFromParcel(Parcel in) {
             return new City(in);

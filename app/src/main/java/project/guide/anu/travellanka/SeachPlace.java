@@ -11,6 +11,7 @@ public class SeachPlace {
     private String description;
     private int image;
 
+
     public SeachPlace(String n, int i){
         setName(n);
         setImage(i);
@@ -24,6 +25,9 @@ public class SeachPlace {
         setImage(i);
     }
 
+    public SeachPlace(){
+
+    }
 
     public String getName() {
         return name;
