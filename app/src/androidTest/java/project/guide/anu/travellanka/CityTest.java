@@ -3,6 +3,8 @@ package project.guide.anu.travellanka;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
+import project.guide.anu.travellanka.modelpackage.City;
+
 /**
  * Created by Anu on 8/17/2015.
  */

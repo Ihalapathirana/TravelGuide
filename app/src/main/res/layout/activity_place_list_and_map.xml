@@ -21,6 +21,8 @@
             android:layout_height="match_parent"
             android:id="@android:id/tabcontent">
 
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
@@ -39,40 +41,48 @@
                     android:layout_marginTop="10dp"
                     android:id="@+id/place_list_view"
                     android:layout_centerHorizontal="true"
+                    android:clickable="true"
                     />
 
 
 
             </LinearLayout>
 
-            <LinearLayout
+
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:id="@+id/tab2"
                 android:orientation="vertical">
 
-                <Button
-                    android:layout_width="fill_parent"
+                <org.osmdroid.views.MapView
+
+                    android:layout_width="match_parent"
                     android:layout_height="fill_parent"
+
+
+                    android:id="@+id/map"
+                    >
+
+                </org.osmdroid.views.MapView>
+
+                <Button
+                    android:layout_width="110dp"
+                    android:layout_height="70dp"
+
                     android:text="@string/suggestions"
                     android:id="@+id/button2"
-                    android:layout_marginTop="400dp"
                     android:onClick="suggestPage"
-
-                    />
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/text"
-                    android:text="Map"
-                    />
+                   android:background="@drawable/roundedbutton"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
 
 
 
 
+            </RelativeLayout>
 
-
-            </LinearLayout>
 
 
         </FrameLayout>

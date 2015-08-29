@@ -89,7 +89,7 @@
         android:layout_gravity="start"
 
         app:layout="@layout/fragment_navigation_drawer_city_view"
-        android:name="project.guide.anu.travellanka.NavigationDrawer"
+        android:name="project.guide.anu.travellanka.viewpackage.NavigationDrawer"
         tools:layout="@layout/fragment_navigation_drawer_city_view"/>
 
 

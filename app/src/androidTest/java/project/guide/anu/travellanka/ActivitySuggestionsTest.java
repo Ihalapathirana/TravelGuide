@@ -4,6 +4,8 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import com.robotium.solo.Solo;
 
+import project.guide.anu.travellanka.viewpackage.ActivitySuggestions;
+
 /**
  * Created by Anu on 8/17/2015.
  */

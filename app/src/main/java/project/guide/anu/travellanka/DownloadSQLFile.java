@@ -32,7 +32,7 @@ class DownloadTask extends AsyncTask<String,Integer,String>{
 
 
     @Override
-    protected String doInBackground(String... sUrl) {
+    public String doInBackground(String... sUrl) {
         InputStream input = null;
         OutputStream output = null;
         HttpURLConnection connection = null;
@@ -98,7 +98,7 @@ class DownloadTask extends AsyncTask<String,Integer,String>{
     }
 
     @Override
-    protected void onPreExecute() {
+    public void onPreExecute() {
         // take CPU lock to prevent CPU from going off if the user
         // presses the power button during download
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
@@ -111,7 +111,7 @@ class DownloadTask extends AsyncTask<String,Integer,String>{
 
 
     @Override
-    protected void onProgressUpdate(Integer... progress) {
+    public void onProgressUpdate(Integer... progress) {
         super.onProgressUpdate(progress);
         // if we get here, length is known, now set indeterminate to false
         mProgressDialog.setIndeterminate(false);
@@ -120,7 +120,7 @@ class DownloadTask extends AsyncTask<String,Integer,String>{
     }
 
     @Override
-    protected void onPostExecute(String result) {
+    public void onPostExecute(String result) {
         mWakeLock.release();
         mProgressDialog.dismiss();
         if (result != null)

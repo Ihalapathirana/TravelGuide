@@ -35,7 +35,7 @@ public class MyPlaceListAddapter extends ArrayAdapter {
         name.setText(sPlace.getName());
         address.setText(sPlace.getAddress());
         phoneNo.setText(sPlace.getPhone_no());
-        desc.setText(sPlace.getDescription());
+        desc.setText(sPlace.getWebLink());
         cityImage.setImageResource(sPlace.getImage());
         return convertView;
     }

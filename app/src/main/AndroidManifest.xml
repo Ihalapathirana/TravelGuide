@@ -5,10 +5,13 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_GPS"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -16,8 +19,40 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".ActivityCitySelection"
+            android:name=".viewpackage.ActivityCitySelection"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ActivityCover"
+            android:label="@string/title_activity_activity_cover" >
+        </activity>
+        <activity
+            android:name=".viewpackage.ActivityCity_view"
+            android:label="@string/title_activity_city_view" >
+        </activity>
+        <activity
+            android:name=".viewpackage.ActivityPlaceListAndMap"
+            android:label="@string/title_activity_place_list_and_map" >
+        </activity>
+        <activity
+            android:name=".viewpackage.ActivitySuggestions"
+            android:label="@string/title_activity_activity_suggestions" >
+        </activity>
+        <activity
+            android:name=".viewpackage.ActivityPlaceDetails"
+            android:label="@string/title_activity_activity_place_details" >
+        </activity>
+        <activity
+            android:name=".viewpackage.WebSite"
+            android:label="@string/title_activity_web_site" >
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".viewpackage.ActivityFirst"
+            android:label="@string/title_activity_activity_first" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,16 +60,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityCity_view"
-            android:label="@string/title_activity_city_view" >
+            android:name=".ActivityCategoryChoose"
+            android:label="@string/title_activity_activity_category_choose" >
         </activity>
         <activity
-            android:name=".ActivityPlaceListAndMap"
-            android:label="@string/title_activity_place_list_and_map" >
-        </activity>
-        <activity
-            android:name=".ActivitySuggestions"
-            android:label="@string/title_activity_activity_suggestions" >
+            android:name=".ActivityMyLocation"
+            android:label="@string/title_activity_activity_my_location" >
         </activity>
     </application>
 

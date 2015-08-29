@@ -22,153 +22,157 @@ import java.util.ArrayList;
 public class NavigationDrawer extends Fragment {
 
 
+    private ActionBarDrawerToggle drawerToggle;
+    private DrawerLayout mDrawerlLayout;
+    Communicator comm;
+
+    String position;
+    UserDBHelper dbHelper;
 
 
+    ListView listView;
+
+    ArrayList<SeachPlace> listItems=new ArrayList<SeachPlace>();
+
+    //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
+
+    public NavigationDrawer() {
+
+    }
 
 
-        private ActionBarDrawerToggle drawerToggle;
-        private DrawerLayout mDrawerlLayout;
-
-        ListView listView;
-
-        ArrayList<SeachPlace> listItems=new ArrayList<SeachPlace>();
-
-        //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
-
-        public NavigationDrawer() {
-
-        }
-
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            View view = inflater.inflate(R.layout.fragment_navigation_drawer_city_view, container, false);
-            listView= (ListView) view.findViewById(R.id.listViewNavBar);
-            MyNavigationListAdapter adapter=new MyNavigationListAdapter(getActivity(),listItems);
-            // add item to navigation drawer
-            listItems.add(new SeachPlace("  Bank", R.drawable.bank));
-            listItems.add(new SeachPlace("  Bus Stops", R.drawable.bus));
-            listItems.add(new SeachPlace("  Gas Filling Station", R.drawable.gas));
-            listItems.add(new SeachPlace("  Hospital", R.drawable.hospital));
-            listItems.add(new SeachPlace("  Hotel", R.drawable.hotel));
-            listItems.add(new SeachPlace("  Restaurants", R.drawable.rest));
-            listItems.add(new SeachPlace("  Attraction places", R.drawable.touristattraction));
-            listItems.add(new SeachPlace("  Train", R.drawable.train));
-
-            // set list view to adapter
-            listView.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
-
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-                                            {
-                                                Intent intent;
-                                                @Override
-                                                public void onItemClick (AdapterView < ? > arg0, View arg1,int pos, long id){
-                                                    // TODO Auto-generated method stub
-                                                    if(pos==0) {
-
-                                                        intent = new Intent(getActivity(), ActivityPlaceListAndMap.class);
-                                                        startActivity(intent);
-                                                    }
-                                                    else if(pos==1){
-
-                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
-                                                        startActivity(intent);
-                                                    }
-                                                    else if(pos==2){
-
-                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
-                                                        startActivity(intent);
-                                                    }
-                                                    else if(pos==3){
-
-                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
-                                                        startActivity(intent);
-                                                    }
-                                                    else if(pos==4){
-
-                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
-                                                        startActivity(intent);
-                                                    }
-                                                    else if(pos==5){
-
-                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
-                                                        startActivity(intent);
-                                                    }
-                                                    else if(pos==6){
-
-                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
-                                                        startActivity(intent);
-                                                    }else{
-
-                                                        intent=new Intent(getActivity(), ActivityPlaceListAndMap.class);
-                                                        startActivity(intent);
-                                                    }
-
-
-
-                                                }
-                                            }
-
-            );
-
-
-            return view;
-        }
-
-
-        public void setUp(DrawerLayout drawerLayout, final Toolbar toolbar) {
-            mDrawerlLayout = drawerLayout;
-            drawerToggle = new ActionBarDrawerToggle(getActivity(), drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
-
-
-                @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-                @Override
-                public void onDrawerOpened(View drawerView) {
-                    super.onDrawerOpened(drawerView);
-                    getActivity().invalidateOptionsMenu();
-                }
-
-                @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-                @Override
-                public void onDrawerClosed(View drawerView) {
-                    super.onDrawerClosed(drawerView);
-
-                    getActivity().invalidateOptionsMenu();
-                }
-
-                @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-                @Override
-                public void onDrawerSlide(View drawerView, float slideOffset) {
-                    if (slideOffset < 0.5) {
-                        toolbar.setAlpha(1 - slideOffset);
-                    }
-                }
-            };
-
-            mDrawerlLayout.setDrawerListener(drawerToggle);
-            mDrawerlLayout.post(new Runnable() {
-                @Override
-                public void run() {
-                    drawerToggle.syncState();
-                }
-            });
-
-
-        }
-
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        comm = (Communicator )getActivity();
+        dbHelper=new UserDBHelper(getActivity());
 
 
 
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_navigation_drawer_city_view, container, false);
+        listView= (ListView) view.findViewById(R.id.listViewNavBar);
+        MyNavigationListAdapter adapter=new MyNavigationListAdapter(getActivity(),listItems);
+        // add item to navigation drawer
+        listItems.add(new SeachPlace("  Bank", R.drawable.bank));
+        listItems.add(new SeachPlace("  Bus Stops", R.drawable.bus));
+        listItems.add(new SeachPlace("  Gas Filling Station", R.drawable.gas));
+        listItems.add(new SeachPlace("  Hospital", R.drawable.hospital));
+        listItems.add(new SeachPlace("  Hotel", R.drawable.hotel));
+        listItems.add(new SeachPlace("  Restaurants", R.drawable.rest));
+        listItems.add(new SeachPlace("  Attraction places", R.drawable.touristattraction));
+        listItems.add(new SeachPlace("  Train", R.drawable.train));
 
+        // set list view to adapter
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                                        {
+                                            Intent intent;
+                                            @Override
+                                            public void onItemClick (AdapterView < ? > arg0, View arg1,int pos, long id){
+                                                // TODO Auto-generated method stub
+                                                if(pos==0) {
+
+                                                    position="bank";
+
+                                                }
+                                                else if(pos==1){
+
+                                                    position="bus_stop";
+                                                }
+                                                else if(pos==2){
+
+                                                    position = "gas_station";
+                                                }
+                                                else if(pos==3){
+
+                                                    position="hospital";
+                                                }
+                                                else if(pos==4){
+
+                                                    position="hotel";
+                                                }
+                                                else if(pos==5){
+
+                                                    position="restaurant";
+
+                                                }
+                                                else if(pos==6){
+
+                                                    position="historical_places";
+                                                }else if (pos==7){
+
+                                                    position="train_station";
+                                                }
+                                                else{
+                                                    position="city";
+                                                }
+
+
+
+
+                                                System.out.println( position +"navDrawer");
+                                                comm.respond(position);
+//                                                    dbHelper.pos(position);
+
+                                            }
+                                        }
+
+        );
+        return view;
+    }
+
+
+    public void setUp(DrawerLayout drawerLayout, final Toolbar toolbar) {
+        mDrawerlLayout = drawerLayout;
+        drawerToggle = new ActionBarDrawerToggle(getActivity(), drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+
+
+            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                getActivity().invalidateOptionsMenu();
+            }
+
+            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+
+                getActivity().invalidateOptionsMenu();
+            }
+
+            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                if (slideOffset < 0.5) {
+                    toolbar.setAlpha(1 - slideOffset);
+                }
+            }
+        };
+
+        mDrawerlLayout.setDrawerListener(drawerToggle);
+        mDrawerlLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                drawerToggle.syncState();
+            }
+        });
+
+
+    }
+
+
+
+
+}

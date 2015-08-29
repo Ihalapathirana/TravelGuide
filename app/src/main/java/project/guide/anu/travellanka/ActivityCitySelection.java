@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
+
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -30,7 +31,8 @@ public class ActivityCitySelection extends ActionBarActivity {
 //        gpsTracker = new GPSLocation(ActivityCitySelection.this);
         button= (Button) findViewById(R.id.downloadButton);
 
-        //progress dialog for downloading
+        /** show progress dialog when download the data file **/
+
         mProgressDialog = new ProgressDialog(ActivityCitySelection.this);
         mProgressDialog.setMessage("Downloading...");
         mProgressDialog.setIndeterminate(true);
@@ -39,25 +41,26 @@ public class ActivityCitySelection extends ActionBarActivity {
 
 
         ArrayList<City> cityList=new ArrayList<>();
-        //add data to city list
+        /**add data to city list **/
         cityList.add(new City("    Colombo", R.drawable.colombo));
         cityList.add(new City("    Galle", R.drawable.galle));
         cityList.add(new City("    Kandy", R.drawable.kandy));
         cityList.add(new City("    Hikkaduwa", R.drawable.hikkaduwa));
         cityList.add(new City("    Trincomalee", R.drawable.trinko));
 
-        // set list view to the adapter
+        /**set list view to the customized adapter **/
         MyCityListAdapter myAdapter = new MyCityListAdapter(ActivityCitySelection.this,cityList);
         listView=(ListView)findViewById(R.id.citylistView);
         listView.setAdapter(myAdapter);
 
+        /** when user click on the list Item this will run **/
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view,int position, long _id){
 
+            /** check the clicked position of the list and according
+             to the position add data to the city object**/
 
-                Log.d("Anusha","p"+position);
-            //check cases
                 switch(position){
                     case 0:
                         name="Colombo";
@@ -100,12 +103,14 @@ public class ActivityCitySelection extends ActionBarActivity {
 
 
 
-                //add data to bundle for send it to the next intent
+                /**add city data to city object and send that object using bundle to the city_View class to
+                 display the city details **/
+
                 city=new City(name,image,desc);
                 Bundle simple_bundle=new Bundle();
                 simple_bundle.putParcelable("cityObject",city);
 
-                Intent intent=new Intent(ActivityCitySelection.this,ActivityCity_view.class);
+                Intent intent=new Intent(ActivityCitySelection.this, ActivityCity_view.class);
                 intent.putExtras(simple_bundle);
                 startActivity(intent);
 
@@ -116,15 +121,16 @@ public class ActivityCitySelection extends ActionBarActivity {
     }
 
    public void download(View view){
-        //.sql file download code here
 
-        final DownloadTask downloadTask = new DownloadTask(ActivityCitySelection.this,mProgressDialog);
+ /** when clicked the download button this method will call.
+  * this method used to download the data file in given link **/
+
+         final DownloadTask downloadTask = new DownloadTask(ActivityCitySelection.this,mProgressDialog);
         downloadTask.execute("https://www.dropbox.com/s/f6colmypsy3cksq/galle%5B2%5D.sql?dl=0");
 
 
 
     }
-
 
 
 }

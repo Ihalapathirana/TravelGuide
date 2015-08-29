@@ -9,9 +9,16 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="locations">Locations</string>
-    <string name="download_button">Download</string>
+    <string name="download_button">My Location</string>
     <string name="search_places">Search</string>
     <string name="title_activity_place_list_and_map">Place List with Map</string>
     <string name="title_activity_activity_suggestions">Suggestions</string>
     <string name="suggestions">Suggestions</string>
+    <string name="title_activity_activity_place_details">ActivityPlaceDetails</string>
+    <string name="title_activity_web_site">WebSite</string>
+    <string name="title_activity_activity_cover">ActivityCover</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_activity_first">ActivityFirst</string>
+    <string name="title_activity_activity_category_choose">ActivityCategoryChoose</string>
+    <string name="title_activity_activity_my_location">ActivityMyLocation</string>
 </resources>
